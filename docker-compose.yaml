@@ -142,12 +142,13 @@ services:
 #      - miniflux-db:/var/lib/postgresql/data
 
   
+
   searxng:
-    image: searxng/searxng:latest
+    build:
+      context: ./searxng
     restart: unless-stopped
 
     volumes:
-      - ./searxng:/etc/searxng
       - searxng-data:/var/lib/searxng
 
     environment:
