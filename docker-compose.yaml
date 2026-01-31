@@ -155,7 +155,8 @@ services:
 
   searxng:
     build:
-      context: ./searxng
+      context: .
+      dockerfile: searxng/Dockerfile
     restart: unless-stopped
 
     volumes:
