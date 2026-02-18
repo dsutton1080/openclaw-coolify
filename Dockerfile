@@ -37,6 +37,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     unzip \
     && rm -rf /var/lib/apt/lists/*
 
+# Needed for native npm modules (e.g., better-sqlite3)
+RUN npm install -g node-gyp && \
+    npm cache clean --force
+ENV PYTHON=/usr/bin/python3
+
 # Stage 2: System CLI tools (change occasionally)
 FROM base AS system-tools
 
